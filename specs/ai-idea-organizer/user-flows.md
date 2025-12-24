@@ -1,69 +1,71 @@
 # Core User Flows
 
-## Flow 1: Quick Idea Capture (Primary Flow)
+> **UX Philosophy**: The Cassette Recorder
+> See `ux-philosophy.md` for the full vision. Capture must feel like pressing
+> record on a handheld recorder - one action, no feedback required, trust the machine.
 
-This is the most critical flow - must be optimized for speed.
+## Flow 1: Idea Capture (Primary Flow) — "The Cassette Recorder"
+
+This is the most critical flow. Every millisecond of friction is the enemy.
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        QUICK CAPTURE                             │
+│                   THE CASSETTE RECORDER FLOW                     │
 └─────────────────────────────────────────────────────────────────┘
 
 User has idea
       │
       ▼
 ┌─────────────┐
-│ Open App /  │ ◄── Target: < 1 second
-│ Tap Widget  │
+│ Tap Widget  │ ◄── Lock screen widget, large target
+│ (< 1 sec)   │     OR open app (opens ALREADY recording)
 └──────┬──────┘
        │
+       │ 🔴 IMMEDIATELY RECORDING
+       │ Haptic: single firm tap
        ▼
 ┌─────────────┐
-│  Recording  │ ◄── Visual: pulsing mic, waveform
-│   Active    │     Audio: subtle start chime
+│             │
+│      ◉      │ ◄── Just a red pulsing dot
+│             │     Nothing else on screen
+│             │
 └──────┬──────┘
        │
        │ User speaks idea
        │
        ▼
 ┌─────────────┐
-│ Stop (tap   │ ◄── Auto-stop after 2s silence OR manual tap
-│ or silence) │
+│  Auto-stop  │ ◄── 2 seconds of silence = done
+│  (or tap)   │     Haptic: double light tap
 └──────┬──────┘
        │
        ▼
 ┌─────────────┐
-│ Transcribing│ ◄── Show progress (< 2 seconds)
-│     ...     │
+│      ✓      │ ◄── Brief flash (1 second)
+│   Captured  │     Then screen fades / closes
 └──────┬──────┘
        │
        ▼
-┌─────────────────────────────────────┐
-│         Idea Captured!              │
-│  ┌───────────────────────────────┐  │
-│  │ "Add dark mode toggle to the │  │
-│  │  settings page with system   │  │
-│  │  preference detection"       │  │
-│  └───────────────────────────────┘  │
-│                                     │
-│  📁 Auto-filed to: Mobile App       │
-│                                     │
-│  [Edit] [Change Project] [Done ✓]   │
-└─────────────────────────────────────┘
-       │
-       │ User taps Done or swipes away
-       │
-       ▼
-    ┌──────┐
-    │ Done │ ◄── Total time: < 15 seconds
-    └──────┘
+┌─────────────┐
+│ Phone back  │ ◄── NO review, NO confirmation
+│ in pocket   │     NO decisions required
+└─────────────┘
+
+TOTAL INTERACTION: < 10 seconds (plus speaking time)
 ```
 
-### Key Optimizations:
-- App remembers last state - opens ready to record
-- No confirmation dialogs
-- AI categorization happens async (shown after capture)
-- "Done" is the default - user doesn't need to take action
+### What Happens in Background (User Never Sees):
+- Audio uploaded
+- Transcription processed
+- AI categorizes into project
+- Synced to cloud
+
+### What Does NOT Happen:
+- ❌ "Which project?" dialog
+- ❌ Transcription review
+- ❌ "Save" button
+- ❌ Any confirmation
+- ❌ Any choice whatsoever
 
 ---
 

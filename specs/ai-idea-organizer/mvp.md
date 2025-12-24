@@ -1,51 +1,90 @@
 # MVP Definition
 
-## MVP Scope
+## The Two-Platform MVP
+
+> **Key Insight**: Mobile is for capture. Desktop is for organization.
+> See `platform-strategy.md` for the full rationale.
 
 ### Goal
-Validate that users will consistently capture ideas via voice and find value in AI-generated project organization.
+Validate that:
+1. Users will capture ideas via voice when friction is near-zero
+2. Users find value in AI-organized transcriptions and project plans
+3. The two-platform model (capture on mobile, organize on desktop) works
 
 ### Success Criteria
 - Users capture 5+ ideas in first week
-- 60% of users generate at least one project plan
+- 70% of ideas captured are reviewed on desktop within 48 hours
+- 50% of users generate at least one project plan
 - User retention at day 7: >30%
 
 ---
 
-## MVP Features
+## MVP = iPhone App + Web App
 
-### ✅ In Scope
+### iPhone App — "The Recorder"
 
-#### Voice Capture
+**One purpose: Capture. That's all.**
+
 | Feature | Details |
 |---------|---------|
-| One-tap recording | App opens to record-ready state |
-| Transcription | Real-time using cloud API (Whisper/Deepgram) |
-| Audio storage | Keep original audio linked to transcription |
-| Edit transcription | Fix errors in transcribed text |
+| Lock screen widget | Large tap target, starts recording immediately |
+| One-tap record | App opens already recording |
+| Auto-stop | Stops after 2s silence |
+| Haptic feedback | Confirms recording started/stopped |
+| Sync indicator | Shows "X ideas captured, all synced" |
+| Background upload | Audio uploads even if app closed |
 
-#### AI Organization
+**That's the entire app.** No browsing. No editing. No organization.
+
+#### iPhone App Screen (The ONLY Screen)
+```
+┌─────────────────────────────────────┐
+│                                     │
+│                                     │
+│                                     │
+│              ◉                      │   ← Tap = record
+│                                     │     (or pulsing when recording)
+│                                     │
+│                                     │
+│                                     │
+│         12 ideas captured           │
+│         ✓ All synced                │
+└─────────────────────────────────────┘
+```
+
+---
+
+### Web App — "The Studio"
+
+**Full organization experience for desktop/tablet.**
+
 | Feature | Details |
 |---------|---------|
-| Auto-categorization | AI assigns ideas to projects automatically |
-| Project creation | AI creates new projects when needed |
-| Project plan generation | Convert idea cluster → ordered task list |
-| Task priorities | High/Medium/Low suggested by AI |
+| Idea timeline | Chronological list with transcriptions |
+| Audio playback | Listen to original recordings |
+| Edit transcriptions | Fix errors with keyboard |
+| Project organization | Manual + AI-suggested grouping |
+| AI categorization | Auto-assigns ideas to projects |
+| Project plan generation | Convert idea clusters to task lists |
+| Search | Full-text across all ideas |
+| Basic export | Markdown, plain text |
 
-#### Viewing & Navigation
-| Feature | Details |
-|---------|---------|
-| Timeline view | Chronological list of all ideas |
-| Project view | Ideas grouped by project |
-| Search | Full-text search across ideas |
-| Idea detail | View/edit individual idea with audio playback |
-
-#### Basic Settings
-| Feature | Details |
-|---------|---------|
-| Account | Email/Apple sign-in |
-| Theme | Light/dark mode |
-| Feedback | In-app feedback mechanism |
+#### Web App Layout
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  Idea Studio                                                    │
+├─────────────┬───────────────────────────────────────────────────┤
+│ PROJECTS    │  Recent Ideas                                     │
+│ ─────────── │  ─────────────────────────────────────────────    │
+│ 📖 Novel    │  "The protagonist should discover..."    [▶][✎]  │
+│ 🏠 House    │   → Novel Project                                 │
+│ 💼 Startup  │                                                   │
+│ 📋 Inbox    │  "Research Victorian mourning..."        [▶][✎]  │
+│             │   → Novel Project                                 │
+│             │                                                   │
+│             │  [Generate Plan from Novel Project]               │
+└─────────────┴───────────────────────────────────────────────────┘
+```
 
 ---
 
@@ -53,152 +92,158 @@ Validate that users will consistently capture ideas via voice and find value in 
 
 | Feature | Why Deferred |
 |---------|--------------|
-| Offline mode | Adds complexity; validate online-first |
-| Lock screen widget | Requires iOS 16+ specific work |
+| Offline transcription | Online-first; validate core loop |
+| Mobile browsing | Desktop is for review |
+| Mobile editing | Desktop is for editing |
 | Apple Watch | Separate app development |
-| Siri integration | Requires additional Apple review |
-| Collaboration | Single-user validation first |
-| Export integrations | Manual export sufficient for MVP |
-| iCloud sync | Single device validation first |
-| Extended recordings | Focus on quick capture pattern |
+| Siri integration | Additional Apple review process |
+| Collaboration | Single-user first |
+| Third-party integrations | Manual export sufficient |
+| Native Mac/iPad apps | Web app covers these initially |
 
 ---
 
 ## MVP Screens
 
-### 1. Home (Timeline)
+### iPhone App: Just ONE Screen
+
+The entire mobile app is one screen with two states:
+
+#### State 1: Ready (Default)
 ```
 ┌─────────────────────────────┐
-│ [≡]  Ideas         [👤]    │
-├─────────────────────────────┤
 │                             │
-│     🎤                      │
-│  Tap to capture idea        │
 │                             │
-├─────────────────────────────┤
-│ Today                       │
-│ ├─ Idea 1... → Project A    │
-│ └─ Idea 2... → Project B    │
 │                             │
-│ Yesterday                   │
-│ └─ Idea 3... → Project A    │
+│           ○                 │  ← Hollow circle
+│                             │    Tap anywhere = record
 │                             │
-├─────────────────────────────┤
-│ [Timeline] [Projects] [🔍]  │
+│                             │
+│                             │
+│      12 ideas · ✓ synced    │
 └─────────────────────────────┘
 ```
 
-### 2. Recording
+#### State 2: Recording
 ```
 ┌─────────────────────────────┐
 │                             │
 │                             │
-│         ◉                   │
-│    ∿∿∿∿∿∿∿∿∿∿              │
 │                             │
-│     Recording...            │
-│        0:04                 │
+│           ◉                 │  ← Solid red, pulsing
+│                             │    Tap anywhere = stop
 │                             │
-│       [Stop]                │
+│                             │
+│                             │
 │                             │
 └─────────────────────────────┘
 ```
 
-### 3. Post-Capture
+#### State 3: Captured (1 second, then back to Ready)
 ```
 ┌─────────────────────────────┐
-│      ✓ Idea Captured        │
-├─────────────────────────────┤
 │                             │
-│ "Add user authentication    │
-│  with social login options  │
-│  like Google and Apple"     │
 │                             │
-│ 📁 → Mobile App Project     │
-│      [Change]               │
 │                             │
-│ [Edit] [🔊]       [Done ✓]  │
+│           ✓                 │
+│        Captured             │
+│                             │
+│                             │
+│                             │
 │                             │
 └─────────────────────────────┘
 ```
 
-### 4. Projects List
+**That's it. Three states, one screen, zero navigation.**
+
+---
+
+### Web App Screens
+
+All browsing, editing, and organization happens here.
+
+#### 1. Inbox / Timeline
 ```
-┌─────────────────────────────┐
-│ [←]  Projects               │
-├─────────────────────────────┤
-│                             │
-│ 📱 Mobile App          (12) │
-│    Last: 2 hours ago        │
-│                             │
-│ ✍️ Blog                 (5) │
-│    Last: Yesterday          │
-│                             │
-│ 🏠 Home Renovation      (8) │
-│    Last: 3 days ago         │
-│                             │
-│ + Create Project            │
-│                             │
-└─────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────┐
+│  Idea Studio                                    jordan@email.com ▼ │
+├──────────────────┬─────────────────────────────────────────────────┤
+│                  │                                                 │
+│  📥 Inbox    (3) │  Inbox                              [Search 🔍] │
+│                  │  ────────────────────────────────────────────   │
+│  PROJECTS        │                                                 │
+│  ─────────       │  ┌────────────────────────────────────────────┐ │
+│  📖 Novel    12  │  │ "The protagonist should discover the..."  │ │
+│  🏠 House     8  │  │                                            │ │
+│  💼 Startup   5  │  │ ▶ 0:23  ·  Today 3:42 PM                   │ │
+│                  │  │                                            │ │
+│                  │  │ [Move to: Novel ▼]              [✎ Edit]   │ │
+│  + New Project   │  └────────────────────────────────────────────┘ │
+│                  │                                                 │
+│                  │  ┌────────────────────────────────────────────┐ │
+│                  │  │ "Call the electrician about the..."       │ │
+│                  │  │                                            │ │
+│                  │  │ ▶ 0:08  ·  Today 2:15 PM                   │ │
+│                  │  │                                            │ │
+│                  │  │ AI suggests: 🏠 House                      │ │
+│                  │  │ [Accept] [Move to: ▼]            [✎ Edit]  │ │
+│                  │  └────────────────────────────────────────────┘ │
+│                  │                                                 │
+└──────────────────┴─────────────────────────────────────────────────┘
 ```
 
-### 5. Project Detail
+#### 2. Project View
 ```
-┌─────────────────────────────┐
-│ [←]  📱 Mobile App          │
-├─────────────────────────────┤
-│ 12 ideas                    │
-│                             │
-│ [✨ Generate Plan]          │
-│                             │
-│ Ideas ──────────────────    │
-│ • Add user auth with...     │
-│ • Dark mode toggle...       │
-│ • Push notifications...     │
-│ • Onboarding flow...        │
-│                             │
-│ + Add idea                  │
-└─────────────────────────────┘
-```
-
-### 6. Generated Plan
-```
-┌─────────────────────────────┐
-│ [←]  📱 Mobile App Plan     │
-├─────────────────────────────┤
-│ Generated from 12 ideas     │
-│                             │
-│ PHASE 1 ────────────────    │
-│ □ Set up auth service   [H] │
-│ □ Build login screens   [H] │
-│ □ Add social providers  [M] │
-│                             │
-│ PHASE 2 ────────────────    │
-│ □ Design onboarding     [M] │
-│ □ Build onboard screens [M] │
-│                             │
-│ [Regenerate] [Edit] [Share] │
-└─────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────┐
+│  Idea Studio                                    jordan@email.com ▼ │
+├──────────────────┬─────────────────────────────────────────────────┤
+│                  │                                                 │
+│  📥 Inbox    (3) │  📖 Novel                    [✨ Generate Plan] │
+│                  │  ────────────────────────────────────────────   │
+│  PROJECTS        │  12 ideas                                       │
+│  ─────────       │                                                 │
+│  📖 Novel  ← 12  │  IDEAS                                          │
+│  🏠 House     8  │  ┌────────────────────────────────────────────┐ │
+│  💼 Startup   5  │  │ "The protagonist should discover..."  ▶ ✎ │ │
+│                  │  ├────────────────────────────────────────────┤ │
+│                  │  │ "Research Victorian mourning..."      ▶ ✎ │ │
+│  + New Project   │  ├────────────────────────────────────────────┤ │
+│                  │  │ "Chapter 3 pacing feels slow..."      ▶ ✎ │ │
+│                  │  └────────────────────────────────────────────┘ │
+│                  │                                                 │
+│                  │  GENERATED PLAN                                 │
+│                  │  ─────────────                                  │
+│                  │  No plan yet. Click "Generate Plan" above.      │
+│                  │                                                 │
+└──────────────────┴─────────────────────────────────────────────────┘
 ```
 
-### 7. Idea Detail
+#### 3. Generated Plan View
 ```
-┌─────────────────────────────┐
-│ [←]  Idea                   │
-├─────────────────────────────┤
-│                             │
-│ "Add user authentication    │
-│  with social login options  │
-│  like Google and Apple"     │
-│                             │
-│ [🔊 Play Audio]             │
-│                             │
-│ Project: Mobile App [Edit]  │
-│ Captured: Today, 2:34 PM    │
-│                             │
-│ [Edit Text]      [Delete]   │
-│                             │
-└─────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────┐
+│  Idea Studio                                    jordan@email.com ▼ │
+├──────────────────┬─────────────────────────────────────────────────┤
+│                  │                                                 │
+│  📥 Inbox    (0) │  📖 Novel — Project Plan           [Regenerate] │
+│                  │  ────────────────────────────────────────────   │
+│  PROJECTS        │                                                 │
+│  ─────────       │  PHASE 1: Story Structure                       │
+│  📖 Novel    12  │  □ Restructure discovery scene to chapter 3     │
+│  🏠 House     8  │    └─ from: "The protagonist should discover.." │
+│  💼 Startup   5  │  □ Adjust pacing in chapters 3-5                │
+│                  │    └─ from: "Chapter 3 pacing feels slow..."    │
+│                  │                                                 │
+│  + New Project   │  PHASE 2: Research                              │
+│                  │  □ Research Victorian mourning customs          │
+│                  │    └─ from: "Research Victorian mourning..."    │
+│                  │  □ Find primary sources for period details      │
+│                  │                                                 │
+│                  │  PHASE 3: Writing                               │
+│                  │  □ Draft new chapter 3 discovery scene          │
+│                  │  □ Revise aunt character based on research      │
+│                  │                                                 │
+│                  │  [Export as Markdown]  [Copy to Clipboard]      │
+│                  │                                                 │
+└──────────────────┴─────────────────────────────────────────────────┘
 ```
 
 ---

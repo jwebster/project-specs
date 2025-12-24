@@ -1,57 +1,91 @@
 # Target User Persona
 
-## Primary Persona: "The Busy Builder"
+## Primary Persona: "The Creative with a Full Mind"
 
-### Profile
-- **Name**: Alex
-- **Age**: 28-45
-- **Role**: Entrepreneur, product manager, creative professional, or side-project enthusiast
-- **Tech comfort**: High - uses iPhone daily, comfortable with new apps
-
-### Characteristics
-- Has ideas constantly - in the shower, while driving, during meetings
-- Currently loses 80% of ideas because capture friction is too high
-- Has tried notes apps but finds typing too slow in the moment
-- Wants to build things but struggles to organize scattered thoughts into action
-
-### Pain Points
-1. **Ideas vanish**: "I had a great idea yesterday but I can't remember it"
-2. **Capture friction**: Unlocking phone → opening app → typing feels too slow
-3. **Idea chaos**: Notes app is a graveyard of disconnected thoughts
-4. **Planning paralysis**: Has lots of ideas but doesn't know where to start
-5. **Context loss**: Written notes lack the nuance of the original thought
-
-### Goals
-- Capture ideas the moment they occur with zero friction
-- See connections between ideas they didn't notice
-- Transform vague ideas into concrete next steps
-- Actually make progress on projects instead of just collecting ideas
-
-### Current Workarounds
-- Voice memos (but never listens back)
-- Texting self (gets lost in chat history)
-- Notes app (becomes disorganized quickly)
-- Physical notebook (not always available)
-
-### Success Metrics (for Alex)
-- Ideas captured per week increases 5x
-- Time from idea to action decreases
-- Actually completes projects started from captured ideas
-
----
-
-## Secondary Persona: "The Creative"
+> *Think of the detective muttering into a handheld recorder. The writer capturing
+> a flash of dialogue while walking. The artist describing a vision before it fades.*
 
 ### Profile
 - **Name**: Jordan
-- **Role**: Writer, designer, artist, musician
-- **Use case**: Creative project development
+- **Age**: 25-50
+- **Role**: Writer, designer, filmmaker, musician, entrepreneur, anyone with creative projects
+- **Tech comfort**: iPhone user, but not interested in fiddling with apps
+
+### The Core Problem
+Ideas come at inconvenient times:
+- In the shower
+- While driving
+- Walking the dog
+- Falling asleep
+- In a meeting
+- Mid-conversation
+
+By the time there's a keyboard in front of them, the idea has evaporated or lost its energy.
+
+### Current Reality
+- **Voice Memos**: Records, but never listens back (graveyard of untranscribed audio)
+- **Notes app**: Types a few words, but they don't capture the full thought
+- **Texting self**: Gets lost in the chat history
+- **Paper notebook**: Not always available, handwriting illegible later
+- **"I'll remember it"**: They don't
+
+**Result**: 80% of ideas are lost. The 20% that survive are diminished.
+
+### What They Need
+
+**In the moment (Mobile):**
+- Capture as fast as thought
+- Speak naturally, don't perform
+- Trust that it's saved
+- Phone away in 10 seconds
+
+**Later, with time (Desktop):**
+- See what they captured, transcribed
+- Recognize patterns they didn't notice
+- Organize into projects
+- Turn scattered thoughts into plans
+
+### The Two Modes
+```
+CAPTURE MODE                    REVIEW MODE
+(iPhone, on the go)             (Mac/iPad, at desk)
+─────────────────               ─────────────────
+Fast                            Thoughtful
+Voice                           Keyboard
+Spontaneous                     Deliberate
+Zero decisions                  Full control
+10 seconds                      10+ minutes
+```
+
+### Success Looks Like
+- "I use this 5 times a day"
+- "I haven't lost an idea in months"
+- "I sat down and all my thoughts were already organized"
+- "It's like having a perfect memory"
+
+### Emotional Journey
+1. **Capture moment**: Relief ("I won't lose this")
+2. **Later, reviewing**: Delight ("I forgot I said that, it's brilliant")
+3. **Seeing organization**: Surprise ("The AI grouped these perfectly")
+4. **Working from plan**: Momentum ("I know exactly what to do next")
+
+---
+
+## Secondary Persona: "The Builder"
+
+### Profile
+- **Name**: Alex
+- **Role**: Product manager, entrepreneur, side-project enthusiast
+- **Use case**: Product and business ideas
 
 ### Unique Needs
-- Wants to capture inspiration, not just tasks
-- Values the "rambling" quality of voice - it captures mood/energy
-- Needs to see connections and themes across ideas
-- Less structured output - more about patterns than project plans
+- Ideas are more task-oriented
+- Wants actionable project plans
+- May integrate with other tools (Jira, Linear, Notion)
+- Values the AI's ability to prioritize and sequence
+
+### Same Core Need
+Still needs frictionless capture. The organization just looks more like a backlog than a creative mood board.
 
 ---
 
