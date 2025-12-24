@@ -261,18 +261,6 @@ All browsing, editing, and organization happens here.
 
 ---
 
-## MVP Timeline Estimate
-
-| Phase | Duration | Deliverable |
-|-------|----------|-------------|
-| Design | 2 weeks | Figma mockups, user flows |
-| Core Capture | 2 weeks | Voice recording + transcription |
-| AI Integration | 2 weeks | Categorization + plan generation |
-| Polish & Testing | 2 weeks | Bug fixes, TestFlight |
-| **Total** | **8 weeks** | TestFlight Beta |
-
----
-
 ## MVP Risks & Mitigations
 
 | Risk | Impact | Mitigation |
@@ -287,17 +275,16 @@ All browsing, editing, and organization happens here.
 
 ## Post-MVP Roadmap
 
-### v1.1 (Month 2)
+### v1.1
 - Offline voice capture
-- Lock screen widget
-- iCloud sync
+- iCloud sync across devices
 
-### v1.2 (Month 3)
-- Siri Shortcuts
+### v1.2
+- Siri Shortcuts integration
 - Export to Reminders
 - AI refinement suggestions
 
-### v2.0 (Month 4-5)
-- Apple Watch app
+### v2.0
+- Apple Watch capture
 - Collaboration (share projects)
-- Third-party integrations
+- Third-party integrations (Notion, Linear, etc.)

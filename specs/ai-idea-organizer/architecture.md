@@ -36,6 +36,9 @@
        │  Whisper  │ │  Claude   │ │  Database │
        │   API     │ │   API     │ │ (Postgres)│
        └───────────┘ └───────────┘ └───────────┘
+
+> **AI Decision**: Claude is the AI provider for all categorization and
+> plan generation. Chosen for strong reasoning and natural language understanding.
 ```
 
 ---

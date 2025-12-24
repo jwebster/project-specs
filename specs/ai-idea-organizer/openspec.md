@@ -4,6 +4,16 @@
 
 ## Status: Discovery
 
+## Name Candidates
+
+| Name | Vibe |
+|------|------|
+| **Murmur** | Intimate, talking to yourself, muttering ideas |
+| **Spoke** | Past tense - it's already captured, no friction |
+| **Spark** | The flash of inspiration you're trying to catch |
+| **Dictate** | Classic, professional, the act itself |
+| **Vox** | Voice, Latin, timeless |
+
 ---
 
 ## Vision
